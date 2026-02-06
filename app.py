@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import secrets
 from datetime import datetime, timedelta, timezone 
-import serial
+
 
 app = Flask(__name__)
 CORS(app) 
@@ -107,8 +107,7 @@ def logout():
 def emergency_stop():
     print("Emergency Stop Activated!")
 
-    if 'ser' in globals():
-     ser.write(b"0\n")
+    
 
     return jsonify({"Status": "Success", "message": "Emergency stop activated"}), 200
 
